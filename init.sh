@@ -137,7 +137,7 @@ curl -Lfs $URL_OMF | fish -c "source - --noninteractive --yes" \
 # FISH CONFIG
 #------------------------------------------------------------
 
-# SHELL VARs
+# SHELL VARIABLES
 
 echo "$(cat <<-EOF
 set -Ux BAT_THEME base16
@@ -145,7 +145,7 @@ set -Ux LD_LIBRARY_PATH /opt/cuda/lib64
 EOF
 )" | fish -c "source -"
 
-# PATH
+# SHELL PATH
 
 echo "$(cat <<-EOF
 fish_add_path /opt/cuda/bin
