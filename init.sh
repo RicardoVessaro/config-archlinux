@@ -186,9 +186,10 @@ EOF
 
 # KORA
 
+mkdir -p $HOME/.local/bin
+
 echo "$(cat <<-EOF
 #!/bin/sh
-
 rm -rf ~/.config/nemo/
 rm -rf ~/.config/cef_user_data/
 rm -rf ~/.config/goa-1.0/
@@ -203,7 +204,6 @@ rm -rf ~/.config/Insomnia/
 rm -rf ~/.config/jgit/
 rm -rf ~/.config/zoom.conf
 rm -rf ~/.config/zoomus.conf
-
 rm -rf ~/.cache/mesa_shader_cache
 rm -rf ~/.cache/thumbnails
 rm -rf ~/.cache/event-sound-cache*
@@ -231,10 +231,8 @@ rm -rf ~/.cache/gmic
 rm -rf ~/.cache/gradle-completions
 rm -rf ~/.cache/qt_compose_cache_little_endian_fedora
 rm -rf ~/.cache/qtshadercache-x86_64-little_endian-lp64
-
 rm -rf ~/.local/state/nvim
 rm -rf ~/.local/state/wireplumber/
-
 rm -rf ~/.local/share/gegl-0.4
 rm -rf ~/.local/share/applications/
 rm -rf ~/.local/share/fish/fish_history
@@ -244,13 +242,11 @@ rm -rf ~/.local/share/qtile/
 rm -rf ~/.local/share/gvfs-metadata/
 rm -rf ~/.local/share/recently-used.xbel
 rm -rf ~/.local/share/.vivaldi_reporting_data
-
 rm -rf ~/.android/
 rm -rf ~/.pki/
 rm -rf ~/.npm/
 rm -rf ~/.w3m/
 rm -rf ~/.stack/
-
 rm -rf ~/.cabal/
 rm -rf ~/.zoom/
 rm -rf ~/.m2/
@@ -273,7 +269,14 @@ rm -rf ~/.testcontainers.properties
 rm -rf ~/.lesshst
 rm -rf ~/.mupdf.history        
 EOF
-)" > $HOME/.local/bin/kora \
+)" > $HOME/.local/bin/kora
+
+echo "$(cat <<-EOF
+fish_add_path $HOME/.local/bin
+EOF
+)" | fish -c "source -"
+
+chmod +x $HOME/.local/bin
 
 # ALIASES
 
