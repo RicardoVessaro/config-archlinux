@@ -4,8 +4,6 @@
 # URLs
 #------------------------------------------------------------
 
-URL_GHCUP="https://get-ghcup.haskell.org"
-URL_RUSTUP="https://sh.rustup.rs"
 URL_SDKMAN="https://get.sdkman.io"
 URL_NVM="https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.5/install.sh"
 URL_OMF="https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install"
@@ -54,22 +52,15 @@ sudo pacman -S --needed --noconfirm \
         less \
         git \
         gnome-browser-connector \
-        gnome-sound-recorder \
         cuda-tools \
         clang \
         cmake \
-        llvm \
-        vivaldi
+        llvm
 
 #------------------------------------------------------------
 # PROGRAMMING LANGUAGES
 #------------------------------------------------------------
 
-curl -Lfs $URL_GHCUP  | BOOTSTRAP_HASKELL_NONINTERACTIVE=1 \
-                        BOOTSTRAP_HASKELL_ADJUST_BASHRC=1 \
-                        BOOTSTRAP_HASKELL_INSTALL_HLS=1 \
-                        bash
-curl -Lfs $URL_RUSTUP | bash -s -- -y
 curl -Lfs $URL_SDKMAN | bash
 curl -Lfs $URL_NVM    | bash
 
@@ -97,10 +88,7 @@ cd $YAY \
                         papirus-icon-theme-git \
                         papirus-folders-git \
                         adw-gtk3-git \
-                        nordvpn-bin \
-                                && sudo systemctl enable nordvpnd \
-                                        && sudo groupadd -r nordvpn \
-                                        && sudo gpasswd  -a (whoami) nordvpn
+						google-chrome
 
 #------------------------------------------------------------
 # REMOVING BINs
@@ -132,7 +120,7 @@ sudo rm -f /usr/share/applications/cmake-gui.desktop
 #------------------------------------------------------------
 
 curl -Lfs $URL_OMF | fish -c "source - --noninteractive --yes" \
-                  && fish -c "omf install sdk nvm pure ghcup rustup"
+                  && fish -c "omf install sdk nvm pure"
 
 #------------------------------------------------------------
 # FISH CONFIG
@@ -245,13 +233,10 @@ rm -rf ~/.local/share/recently-used.xbel
 rm -rf ~/.local/share/.vivaldi_reporting_data
 rm -rf ~/.android/
 rm -rf ~/.pki/
-rm -rf ~/.npm/
 rm -rf ~/.w3m/
 rm -rf ~/.stack/
 rm -rf ~/.cabal/
 rm -rf ~/.zoom/
-rm -rf ~/.m2/
-rm -rf ~/.vscode/
 rm -rf ~/.sbt/
 rm -rf ~/.kube/
 rm -rf ~/.gradle/
@@ -262,7 +247,6 @@ rm -rf ~/.sonarlint/
 rm -rf ~/.bash_history
 rm -rf ~/.python_history
 rm -rf ~/.serverauth.*
-rm -rf ~/.angular-config.json
 rm -rf ~/.node_repl_history
 rm -rf ~/.Xauthority
 rm -rf ~/.wget-hsts
