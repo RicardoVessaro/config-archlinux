@@ -81,7 +81,8 @@ sudo pacman -S --needed --noconfirm \
         ttf-jetbrains-mono-nerd \
         ttf-firacode-nerd \
         ttf-cascadia-code-nerd	\
-        ttf-fira-sans
+        ttf-fira-sans \
+        ttf-liberation
 
 #------------------------------------------------------------
 # YAY BINs
